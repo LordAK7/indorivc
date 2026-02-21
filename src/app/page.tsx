@@ -66,7 +66,7 @@ export default function Home() {
           <div className="grain z-10" />
           <motion.h1
             className="relative z-10"
-            style={{ ...mono, fontWeight: 700, fontSize: "2.7rem" }}
+            style={{ ...mono, fontWeight: 700, fontSize: "clamp(1.8rem, 5vw, 2.7rem)" }}
             initial={{ opacity: 0, y: 20, letterSpacing: "0.2em" }}
             animate={{ opacity: 1, y: 0, letterSpacing: "0em" }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -76,9 +76,9 @@ export default function Home() {
         </section>
 
         {/* Pillars */}
-        <section className="flex min-h-screen flex-col items-center justify-center gap-16 bg-white px-10 py-24">
+        <section className="flex min-h-screen flex-col items-center justify-center gap-12 bg-white px-5 py-20 md:gap-16 md:px-10 md:py-24">
           <p
-            className="max-w-3xl text-center text-sm tracking-widest"
+            className="max-w-3xl text-center text-xs tracking-widest md:text-sm"
             style={{ ...mono, fontWeight: 700 }}
           >
             AN ANGEL SYNDICATE BACKING{" "}
@@ -86,18 +86,21 @@ export default function Home() {
             BUILDING FOR THE WORLD.
           </p>
 
-          <div className="grid w-full max-w-7xl grid-cols-2 gap-px bg-black">
+          <div className="grid w-full max-w-7xl grid-cols-1 gap-px bg-black sm:grid-cols-2">
             {pillars.map((pillar) => (
               <motion.div
                 key={pillar.title}
-                className="flex flex-col gap-5 bg-white p-16"
+                className="flex flex-col gap-4 bg-white p-8 md:gap-5 md:p-16"
                 whileHover={{ backgroundColor: "#F7F7F7" }}
                 transition={{ duration: 0.25 }}
               >
-                <h2 className="text-base tracking-widest" style={{ ...mono, fontWeight: 700, color: accent }}>
+                <h2
+                  className="text-sm tracking-widest md:text-base"
+                  style={{ ...mono, fontWeight: 700, color: accent }}
+                >
                   {pillar.title}
                 </h2>
-                <p className="text-sm leading-loose text-zinc-500" style={mono}>
+                <p className="text-xs leading-loose text-zinc-500 md:text-sm" style={mono}>
                   {pillar.body.split("\n").map((line, i) => (
                     <span key={i}>{line}<br /></span>
                   ))}
@@ -109,12 +112,12 @@ export default function Home() {
 
         {/* Post-investment */}
         <section
-          className="flex min-h-screen flex-col items-center justify-center px-10 py-24"
+          className="flex min-h-screen flex-col items-center justify-center px-5 py-20 md:px-10 md:py-24"
           style={{ backgroundColor: "#F7F7F7" }}
         >
           <div className="w-full max-w-7xl">
             <p
-              className="mb-16 text-xs tracking-widest"
+              className="mb-12 text-xs tracking-widest md:mb-16"
               style={{ ...mono, fontWeight: 700, color: accent }}
             >
               WHAT WE ACTUALLY DO AFTER WE INVEST
@@ -124,17 +127,23 @@ export default function Home() {
               {postInvestment.map((item) => (
                 <motion.div
                   key={item.index}
-                  className="grid grid-cols-[4rem_1fr_2fr] items-start gap-10 border-t border-black py-12"
+                  className="flex flex-col gap-3 border-t border-black py-8 md:grid md:grid-cols-[4rem_1fr_2fr] md:items-start md:gap-10 md:py-12"
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
                 >
-                  <span className="pt-1 text-xs" style={{ ...mono, color: accent }}>
+                  <span
+                    className="text-xs"
+                    style={{ ...mono, color: accent }}
+                  >
                     {item.index}
                   </span>
-                  <h3 className="text-sm tracking-wide" style={{ ...mono, fontWeight: 700 }}>
+                  <h3
+                    className="text-sm tracking-wide"
+                    style={{ ...mono, fontWeight: 700 }}
+                  >
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-loose text-zinc-500" style={mono}>
+                  <p className="text-xs leading-loose text-zinc-500 md:text-sm" style={mono}>
                     {item.body}
                   </p>
                 </motion.div>
@@ -145,35 +154,35 @@ export default function Home() {
         </section>
 
         {/* For Founders */}
-        <section className="flex min-h-screen flex-col items-center justify-center bg-white px-10 py-24">
+        <section className="flex min-h-screen flex-col items-center justify-center bg-white px-5 py-20 md:px-10 md:py-24">
           <div className="w-full max-w-7xl">
             <p
-              className="mb-12 text-xs tracking-widest"
+              className="mb-10 text-xs tracking-widest md:mb-12"
               style={{ ...mono, fontWeight: 700, color: accent }}
             >
               FOR FOUNDERS
             </p>
 
             <h2
-              className="mb-8 max-w-3xl text-3xl leading-tight"
+              className="mb-6 max-w-3xl text-2xl leading-tight md:mb-8 md:text-3xl"
               style={{ ...mono, fontWeight: 700 }}
             >
               We're not building a 200-company portfolio. We back a small number of founders each year and go deep.
             </h2>
 
             <p
-              className="mb-16 max-w-2xl text-sm leading-loose text-zinc-500"
+              className="mb-12 max-w-2xl text-xs leading-loose text-zinc-500 md:mb-16 md:text-sm"
               style={mono}
             >
               If you're an Indian founder building in AI or B2B SaaS with global ambition — we want to hear from you.
             </p>
 
-            <div className="flex items-center gap-8">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
               <motion.a
                 href="https://form.typeform.com/to/KnWO6S7T"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-black px-8 py-4 text-xs tracking-widest"
+                className="inline-block border border-black px-8 py-4 text-center text-xs tracking-widest"
                 style={{ ...mono, fontWeight: 700 }}
                 whileHover={{ backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.98 }}
@@ -199,7 +208,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer style={{ backgroundColor: "#F7F7F7" }}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-10 py-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 md:flex-row md:items-center md:justify-between md:px-10">
           <span className="text-xs" style={{ ...mono, fontWeight: 700 }}>
             Indori.vc
           </span>
@@ -207,7 +216,7 @@ export default function Home() {
             Indori VC is based in India.
           </p>
           <p className="text-xs text-zinc-400" style={mono}>
-            Design & Development —{" "}
+            Led by{" "}
             <a
               href="https://www.linkedin.com/in/vipinpharkya/"
               target="_blank"
